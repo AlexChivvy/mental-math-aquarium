@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Mental Math Aquarium</title>
+</head>
+<body>
+
+   <header>
+        <h1>Mental Math Aquarium</h1>
+        <p>Practice your mental math skills and grow your acquarium</p>
+        <p>The seconds you take to answer are the credits you earn to buy and feed your fish</p> 
+   </header>
+
+   <div id="aquarium-status">
+        <div id="game-play">
+                <button class="start-play">Play</button>
+                <button class="pause-play">Pause</button>
+                <div id="countdown">Timer</div>
+        </div>
+    </div>
+
+   <div id="game-area">
+    <div class="side-buttons game-area-item">
+        <p>Difficulty level:</p>
+        <button id="level-button easy">Easy</button><br>
+        <button id="level-button medium">Medium</button><br>
+        <button id="level-button hard">Hard</button><br>
+    </div>
+    <canvas id="aquarium" class='game-area-item'>
+   </canvas>
+   <div class="side-buttons game-area-item">
+        <button id="buy-fish">Buy Fish - 100 Cred</button><br>
+        <div>Fish Count:</div>
+        <div id="fish-counter">0</div>
+        <br><br>
+        <button id="buy-food">Buy Food - 25 Cred</button><br>
+        <div>Credits:</div>
+        <div id="credits-counter">0</div>
+    </div>
+    </div>
+
+    
+   <div id="math-q-and-a">
+       <div class="question-section">Question</div>
+       <div class="answer-section">
+           <button class="button-A answerButton" value="0">Answer A</button>
+           <button class="button-B answerButton" value="0">Answer B</button>
+           <button class="button-C answerButton" value="0">Answer C</button>
+       </div>
+   </div>
+
+    <!-- <footer>
+	Fish Pack by Andrew Tidey
+	License (Creative Commons Zero, CC0)
+	<a href="http://creativecommons.org/publicdomain/zero/1.0/">http://creativecommons.org/publicdomain/zero/1.0/</a>
+    </footer> -->
+
+
+    <script type="text/javascript" src="canvas.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+</html>
