@@ -48,10 +48,20 @@ function update(runtime) {
   // console.log(runtime); // log in each frame for how long the game is running in milliseconds
   // do stuff here
 
-  //Draw the fish for every fish
-  myFish.update();
-  myFish.newPosition();
-  myFish.drawFish();
+  fishSet.forEach(element => {
+    element.update();
+    element.newPosition();
+    element.drawFish();
+  });
+
+  // for (i=0; i<fishSet.length; i+=1){
+
+  // }
+
+  // //Draw the fish for every fish
+  // myFish.update();
+  // myFish.newPosition();
+  // myFish.drawFish();
   // call loopControl.start() or loopControl.stop() in the end
   loopControl.start();
 }
@@ -109,12 +119,14 @@ class FishObject {
 
 
 
+
+
 const createFish = () => {
-  const myFish = new FishObject (30,30,'blue',canvas.width/2,canvas.height/2);
+  console.log('did ')
+  fishSet.push(new FishObject (30,30,'blue',canvas.width/2,canvas.height/2));
 }
 
 // fishSet.push(new FishObject(30,30,'blue',canvas.width/2,canvas.height/2));
-const myFish = new FishObject (30,30,'blue',canvas.width/2,canvas.height/2);
+// const myFish = new FishObject (30,30,'blue',canvas.width/2,canvas.height/2);
 
 
-createFish();

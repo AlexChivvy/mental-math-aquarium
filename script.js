@@ -185,16 +185,14 @@ const playStart = () => {
     timeleft = 10;
     startQnATimer();
     setTimeout(generateNewQuestion(),2000);
-    loopControl.start();
-    //START THE GAME
-
-    console.log (fullQnASet);
     //On first start give a free fish
     if (blnFirstStart) {
-//        createFish();
-    }
+        createFish();
+        }
     //Hereon out no free lunch
     blnFirstStart = false;
+    //START THE GAME
+    loopControl.start();
 }
 
 // Pause the game
@@ -259,10 +257,10 @@ document.getElementById(`buy-food`).onclick = function() {
 
 // Buy Fish
 document.getElementById(`buy-fish`).onclick = function() {
-    if (creditsTotal < 25){
+    if (creditsTotal < -1){
     } else {
-        console.log('buyFish')
-        removeCredits(25);
+        createFish();
+        removeCredits(0);
         //buyFish();
     }
 }
