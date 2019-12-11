@@ -13,6 +13,7 @@
         <h1>Mental Math Aquarium</h1>
         <p>Practice your mental math skills and grow your acquarium</p>
         <p>The seconds you take to answer are the credits you earn to buy and feed your fish</p> 
+        <p>Remember to feed your fish every XXX seconds</p> 
    </header>
 
    <div id="aquarium-status">
@@ -26,9 +27,10 @@
    <div id="game-area">
     <div class="side-buttons game-area-item">
         <p>Difficulty level:</p>
-        <button id="level-button easy">Easy</button><br>
-        <button id="level-button medium">Medium</button><br>
-        <button id="level-button hard">Hard</button><br>
+        <button class="level-button" value="hard">Hard</button><br>
+        <button class="level-button" value="medium">Medium</button><br>
+        <button class="level-button" value="easy">Easy</button><br>
+
     </div>
     <canvas id="aquarium" class='game-area-item'>
    </canvas>
@@ -42,7 +44,6 @@
         <div id="credits-counter">0</div>
     </div>
     </div>
-
     
    <div id="math-q-and-a">
        <div class="question-section">Question</div>
@@ -58,7 +59,6 @@
 	License (Creative Commons Zero, CC0)
 	<a href="http://creativecommons.org/publicdomain/zero/1.0/">http://creativecommons.org/publicdomain/zero/1.0/</a>
     </footer> -->
-
 
     <script type="text/javascript" src="canvas.js"></script>
     <script type="text/javascript" src="script.js"></script>

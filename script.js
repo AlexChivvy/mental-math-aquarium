@@ -3,10 +3,19 @@
 let fullQnASet = [];
 let blnGlobalPlayStart = false;
 let creditsTotal = 0;
-let fishTotal = 0;
+let fishBasicCounter = 0;
 let difficultyLevel = 'hard';
+let fishSet = [];
 
-// Simple arithmatic
+
+// Difficulty level selector
+document.querySelectorAll(`.level-button`).forEach(e => {
+    e.onclick = function() {
+    difficultyLevel = e.value;
+    }
+})
+
+// Basic arithmatic type question
 const qBasicMath = () => {
     const arrayOperationSelector = ['+','-','*','/'];
     let randomUpperLimit = 0
@@ -30,7 +39,7 @@ const qBasicMath = () => {
     return [questionString,answerValue,isPercentage];
 }
 
-// Percentages
+// Percentages type question
 const qPercentage = () => {
     let randomUpperLimit = 0
     switch (difficultyLevel){
@@ -52,7 +61,7 @@ const qPercentage = () => {
     return [questionString,answerValue,isPercentage];
 }
 
-// Growth rates
+// Growth rates type question
 const qGrowthRate = () => {
     let growthRateOptions = [0.25,0.5,1,2,3,4,5,6,7,8,9,10,12,15,18,20,22,25,27,30,40,50,60,70,80,90,100];
     let periodOptions = [2,3,4,5,6,7,8,9,10,15,20,30,40,50];
@@ -156,17 +165,33 @@ const setDelay = () => console.log('Delay!');
 
 // Start the game, initializing at first start
 let blnFirstStart = true;
+let timeleft = 0
 
+// Start Q&A Timer
+const startQnATimer = () => setInterval(function(){
+  if (blnGlobalPlayStart) {
+  document.getElementById("countdown").innerHTML = timeleft + " seconds remaining";
+  timeleft -= 1;
+  if(timeleft < 0){
+         // Re-set timer    
+        timeleft = 10;
+        generateNewQuestion();
+  }
+}}, 1000);
+
+// Play the game
 const playStart = () => {
     blnGlobalPlayStart = true;
     timeleft = 10;
-    startTimer();
-    startGame();
+    startQnATimer();
     setTimeout(generateNewQuestion(),2000);
+    loopControl.start();
+    //START THE GAME
+
     console.log (fullQnASet);
     //On first start give a free fish
     if (blnFirstStart) {
-        const firstFish = new FishObject (60,30,'blue',canvas.width/2,canvas.height/2);
+//        createFish();
     }
     //Hereon out no free lunch
     blnFirstStart = false;
@@ -181,6 +206,7 @@ const playPause = () => {
     document.querySelector(`.button-B`).innerHTML = 'Answer B';
     document.querySelector(`.button-C`).innerHTML = 'Answer C';
     blnFirstStart = false;
+    loopControl.stop();
 }
 
 // On click, start the game
@@ -194,6 +220,16 @@ const addCredits = inputCredits => {
     creditsTotal += inputCredits;
     document.getElementById("credits-counter").innerHTML = creditsTotal;
 }
+
+// Remove credits
+const removeCredits = inputCredits => {
+    creditsTotal -= inputCredits;
+    document.getElementById("credits-counter").innerHTML = creditsTotal;
+}
+
+// Count fish
+
+
 
 // Show correct answer 
 const showCorrectAnswer = () => {
@@ -209,7 +245,36 @@ const showCorrectAnswer = () => {
 }
 
 
-//Set a timer to answer or otherwise re-set the question
+
+
+// Buy Food
+document.getElementById(`buy-food`).onclick = function() {
+    if (creditsTotal < 25){
+    } else {
+        console.log('feedFish')
+        removeCredits(25);
+        //feedFish();
+    }
+}
+
+// Buy Fish
+document.getElementById(`buy-fish`).onclick = function() {
+    if (creditsTotal < 25){
+    } else {
+        console.log('buyFish')
+        removeCredits(25);
+        //buyFish();
+    }
+}
+
+
+// Fish counter 
+const fishCount = () => {
+
+}
+
+
+// Feed fish 
 
 //Timer 
 
