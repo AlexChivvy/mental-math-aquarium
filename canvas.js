@@ -15,22 +15,22 @@ let runtime;
 
 
 // LOOP CONTROL Object
-let requestId;
+let requestIDCanvas;
 const loopControl = {
   start() {
     // At intial iteration, request ID is undefined, will be defined by requestAnimationFrame
-    if (!requestId) {
-      requestId = window.requestAnimationFrame(update);
+    if (!requestIDCanvas) {
+      requestIDCanvas = window.requestAnimationFrame(update);
     }
     // Draw the canvas each iteration
     this.canvas = canvas;
     this.context = context;
   },
   stop() {
-    if (requestId) {
+    if (requestIDCanvas) {
       console.log('hello, stop');
-      window.cancelAnimationFrame(requestId);
-      requestId = undefined;
+      window.cancelAnimationFrame(requestIDCanvas);
+      requestIDCanvas = undefined;
     }
   },
   clear() {
@@ -152,7 +152,7 @@ const createFish = () => {
 
 function update(runtime) {
   // A good practice is to clean a variable in a function that is running constantly in the background so avoid excessive memory use
-  requestId = undefined;
+  requestIDCanvas = undefined;
   loopControl.clear();
   frames += 1;
   // console.log(runtime); // log in each frame for how long the game is running in milliseconds
