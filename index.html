@@ -11,37 +11,35 @@
 
    <header>
         <h1>Mental Math Aquarium</h1>
-        <p>Practice your mental math skills and grow your aquarium</p>
-        <p>The seconds you take to answer are the credits you earn to buy and feed your fish</p> 
-        <p>Remember to feed your fish every XXX seconds</p> 
+        <!-- <p>The seconds you take to answer are the credits you earn to buy and feed your fish</p> 
+        <p>Remember to feed your fish every XXX seconds</p>  -->
    </header>
 
    <div id="aquarium-status">
-        <div id="game-play">
+        <div id="timer-area">
+                <div id="countdown">Timer</div><br>
                 <button class="start-play">Play</button>
-                <button class="pause-play">Pause</button>
-                <div id="countdown">Timer</div>
+                <button class="pause-play">Pause</button><br>
+        </div>
+        <div class="difficulty-area">
+            <div>Difficulty level:</div><br>
+            <button class="level-button" value="hard">Hard</button>
+            <button class="level-button" value="medium">Medium</button>
+            <button class="level-button" value="easy">Easy</button>
         </div>
     </div>
 
    <div id="game-area">
-    <div class="side-buttons game-area-item">
-        <p>Difficulty level:</p>
-        <button class="level-button" value="hard">Hard</button><br>
-        <button class="level-button" value="medium">Medium</button><br>
-        <button class="level-button" value="easy">Easy</button><br>
 
-    </div>
     <canvas id="aquarium" class='game-area-item'>
    </canvas>
    <div class="side-buttons game-area-item">
-        <button id="buy-fish">Buy Fish - 100 Cred</button><br>
-        <div>Fish Count:</div>
-        <div id="fish-counter">0</div>
+        <div id="fish-counter">Fish Counter: 0</div><br>
+        <button id="buy-fish" value="100">Buy Fish - 100 Cred</button>
         <br><br>
-        <button id="buy-food">Buy Food - 25 Cred</button><br>
         <div>Credits:</div>
-        <div id="credits-counter">0</div>
+        <div id="credits-counter">0</div><br>
+        <button id="buy-food" value="25">Buy Food - 25 Cred</button>
     </div>
     </div>
     
@@ -58,6 +56,7 @@
 	Fish Pack by Andrew Tidey
 	License (Creative Commons Zero, CC0)
 	<a href="http://creativecommons.org/publicdomain/zero/1.0/">http://creativecommons.org/publicdomain/zero/1.0/</a>
+    Sound effects obtained from https://www.zapsplat.com
     </footer> -->
 
     <script type="text/javascript" src="canvas.js"></script>

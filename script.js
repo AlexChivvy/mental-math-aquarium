@@ -7,7 +7,7 @@ let fishBasicCounter = 0;
 let difficultyLevel = 'hard';
 let fishSet = [];
 let requestIDTimer;
-
+let fishCounter = 0;
 
 // Difficulty level selector
 document.querySelectorAll(`.level-button`).forEach(e => {
@@ -170,9 +170,13 @@ let timeleft = 0
 
 // Start Q&A Timer
 
-const startQnATimer = () => {
-  if (blnGlobalPlayStart) {
-  document.getElementById("countdown").innerHTML = timeleft + " seconds remaining";
+const runQnATimer = () => {
+    zeroFill = '0';
+    if (blnGlobalPlayStart) {
+    if(timeleft===10){
+    zeroFill = '';
+    }
+  document.getElementById("countdown").innerHTML =  zeroFill + timeleft + " seconds remaining";
   timeleft -= 1;
     if(timeleft < 0){
             // Re-set timer    
@@ -184,14 +188,14 @@ const startQnATimer = () => {
 
 //Create a requestID to avoid bugs in your timer
 if (!requestIDTimer){
-    requestIDTimer = setInterval (startQnATimer,1000);
+    requestIDTimer = setInterval (runQnATimer,1000);
 }
 
 // Play the game
 const playStart = () => {
     blnGlobalPlayStart = true;
     timeleft = 10;
-    startQnATimer();
+    runQnATimer();
     generateNewQuestion();
     // setTimeout(generateNewQuestion(),2000);
     //On first start give a free fish
@@ -257,11 +261,11 @@ const showCorrectAnswer = () => {
 
 // Buy Food
 document.getElementById(`buy-food`).onclick = function() {
-    if (creditsTotal < 25){
+    if (creditsTotal < -1){
     } else {
-        console.log('feedFish')
-        removeCredits(25);
-        //feedFish();
+        console.log('button clicked')
+        feedFish();
+        removeCredits(0);
     }
 }
 

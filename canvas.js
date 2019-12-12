@@ -88,15 +88,6 @@ class FishObject {
       }
     }
 
-    feedingFish(){
-      this.health = Math.max(this.health + 50,100)
-        if(!this.blnHealthy) {
-          this.blnHealthy = true;
-          this.speedX *= 2;
-          this.speedY *= 2;
-        }
-    }
-
     drawFish(){
       // context.fillStyle = this.color;
       // context.fillRect(this.x, this.y, this.width, this.height);
@@ -141,9 +132,24 @@ class FishObject {
     }
 }
 
+const feedFish = () => {
+  console.log('clicked FEED');
+  fishSet.forEach((element) => {
+    element.health = Math.max(element.health + 50,100)
+      if(!element.blnHealthy) {
+        element.blnHealthy = true;
+        element.speedX *= 2;
+        element.speedY *= 2;
+      }
+    }
+  )
+};
+
 const createFish = () => {
-  console.log('did ')
-  fishSet.push(new FishObject (30,30,'blue',canvas.width/2,canvas.height/2));
+  console.log('made a fish')
+  fishCounter += 1;
+  document.getElementById("fish-counter").innerHTML =  "Fish Counter: " + fishCounter;
+  fishSet.push(new FishObject (30,30,'blue',(canvas.width/8 + Math.random()*canvas.width*3/4),(canvas.height/8 + Math.random()*canvas.height*3/4)));
 }
 
 // fishSet.push(new FishObject(30,30,'blue',canvas.width/2,canvas.height/2));
