@@ -11,18 +11,19 @@
 
    <header>
         <h1>Mental Math Aquarium</h1>
-        <!-- <p>The seconds you take to answer are the credits you earn to buy and feed your fish</p> 
-        <p>Remember to feed your fish every XXX seconds</p>  -->
+        <h2>by Alex Chivescu</h2>
    </header>
 
    <div id="aquarium-status">
-        <div id="timer-area">
-                <div id="countdown">Timer</div><br>
+        <div id="timer-area" class="width50perc">
+                <div id="countdown" class="below-row">Timer</div>
                 <button class="start-play">Play</button>
                 <button class="pause-play">Pause</button><br>
         </div>
-        <div class="difficulty-area">
-            <div>Difficulty level:</div><br>
+        <div class="width10perc">
+        </div>
+        <div class="difficulty-area" class="width40perc">
+            <div class="below-row">Difficulty level:</div>
             <button class="level-button" value="hard">Hard</button>
             <button class="level-button" value="medium">Medium</button>
             <button class="level-button" value="easy">Easy</button>
@@ -30,33 +31,44 @@
     </div>
 
    <div id="game-area">
-
     <canvas id="aquarium" class='game-area-item'>
    </canvas>
-   <div class="side-buttons game-area-item">
-        <div id="fish-counter">Fish Counter: 0</div><br>
-        <button id="buy-fish" value="100">Buy Fish - 100 Cred</button>
-        <br><br>
-        <div>Credits:</div>
-        <div id="credits-counter">0</div><br>
-        <button id="buy-food" value="25">Buy Food - 25 Cred</button>
-    </div>
     </div>
     
-   <div id="math-q-and-a">
-       <div class="question-section">Question</div>
-       <div class="answer-section">
-           <button class="button-A answerButton" value="0">Answer A</button>
-           <button class="button-B answerButton" value="0">Answer B</button>
-           <button class="button-C answerButton" value="0">Answer C</button>
-       </div>
-   </div>
+    <div id ="below-screen"> 
+        <div class="width50perc">
+            <div class="question-section below-row">Question</div>
+            <div class="answer-section">
+                <button class="button-A answerButton" value="0">Answer A</button>
+                <button class="button-B answerButton" value="0">Answer B</button>
+                <button class="button-C answerButton" value="0">Answer C</button>
+            </div>
+        </div>
+        <div class="width25perc">
+            <div id="fish-counter" class="below-row">Fishies: 0</div>
+            <button id="buy-fish" value="50">Buy Fish - 50 Cred</button>
+        </div>
+        <div class="width25perc">
+            <div id="credits-counter" class="below-row">Credits: 0</div>
+            <button id="buy-food" value="20">Buy Food - 20 Cred</button>
+        </div>
+    </div>
+
+    <div id="answer-reveal" class="below-row">
+        Check your answers here!
+    </div>
+
+    <footer id="footer"> 
+        Fish Pack by Andrew Tidey | License (<a href="http://creativecommons.org/publicdomain/zero/1.0/">Creative Commons Zero, CC0</a>)<br>
+        Sound effects obtained from  <a href="https://www.zapsplat.com">https://www.zapsplat.com</a><br>
+        Royalty free music from  <a href="https://www.fesliyanstudios.com">https://www.fesliyanstudios.com</a>
+    </footer>
+
+        
+
 
     <!-- <footer>
-	Fish Pack by Andrew Tidey
-	License (Creative Commons Zero, CC0)
-	<a href="http://creativecommons.org/publicdomain/zero/1.0/">http://creativecommons.org/publicdomain/zero/1.0/</a>
-    Sound effects obtained from https://www.zapsplat.com
+
     </footer> -->
 
     <script type="text/javascript" src="canvas.js"></script>

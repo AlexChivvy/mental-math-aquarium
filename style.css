@@ -8,12 +8,16 @@ body {
     font-family: Georgia, serif;
 }
 
+header {
+    line-height: 20px;
+    margin: 10px 0px;
+}
+
 #aquarium-status{
-    display:flex;
+    display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
-    width: 65%;
+    width: 600px;
 }
 
 #play-pause-buttons{
@@ -22,27 +26,49 @@ body {
     align-items: center;
 }
 
-#game-area{
+#below-screen{
+    width: 600px;
     display:flex;
     flex-direction: row;
-    align-items: center;
+    justify-content: space-around;
 }
 
-/* .side-buttons{
-    display:flex;
-    flex-direction: row;
-    align-items: center;
-    width: 120px;
-} */
+.width50perc{
+    width: 50%;
+}
+
+.width25perc{
+    width: 25%;
+}
+
+.width10perc{
+    width: 14%;
+}
+
+.width40perc{
+    width: 36%;
+}
 
 canvas {
-    margin: 20px;
+    margin: 15px;
     background-image: url('./ImgPack/PNG/Small/Background.png');
     background-size: cover;
     background-repeat: no-repeat;
 }
 
-.question-section{
-    margin-bottom: 20px;
+footer {
+    font-size: 0.25em;
+    padding: 30px;
 }
 
+#answer-reveal{
+    height: 50px;
+    position: relative;
+    top: 50%;
+    transform: translateY(50%);
+    font-weight: bold;
+}
+
+.below-row{
+    margin-bottom: 10px;
+}

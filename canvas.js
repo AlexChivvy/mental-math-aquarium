@@ -1,6 +1,9 @@
 //Aquarium Setup
 
-
+window.alert("The seconds you take to answer each math question become the credits you can spend to grow your aquarium and feed your fishies. Hit play to start");
+  
+var backgroundMusic = new Audio();
+backgroundMusic.src = './AudioPack/Fesliyan/2019-10-21_-_Feels_Good_-_David_Fesliyan.mp3';
 var backgroundImage = new Image();
 backgroundImage.src = './ImgPack/PNG/Small/Background.png';
 const canvas = document.getElementById(`aquarium`);
@@ -10,8 +13,18 @@ canvas.width = 600;
 canvas.height = 400;
 backgroundImage.onload = () => {
   context.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
+  // context.textAlign = "start";
+  // context.font = "20px Georgia";
+  
+  // <input type="textbox" value="The seconds you take to answer the math Q&A are the credits you earn to feed your fishies and grow your Mental Math Aquarium! Remember: Feed your fishies if they get hungry :-)" id="textbox"></input>
+  // context.fillText("The seconds you take to answer the math Q&A", canvas.width*1.5/10, canvas.height*1.5/10);
+  // context.fillText("are the credits you earn to feed your fishies", canvas.width*2/10, canvas.height*2.5/10);
+  // context.fillText("and grow your Mental Math Aquarium!", canvas.width*1.5/10, canvas.height*3.5/10);
+  // context.fillText("Remember: Feed your fishies if they get hungry :-)", canvas.width*2/10, canvas.height*4.5/10);
 }
 let runtime; 
+
+// Initial Canvas Text 
 
 
 // LOOP CONTROL Object
@@ -28,7 +41,7 @@ const loopControl = {
   },
   stop() {
     if (requestIDCanvas) {
-      console.log('hello, stop');
+      // console.log('hello, stop');
       window.cancelAnimationFrame(requestIDCanvas);
       requestIDCanvas = undefined;
     }
@@ -63,20 +76,14 @@ class FishObject {
 
     reduceHealth(){
       if (frames % 300 === 0){ // Every 5 seconds, 1 second = 60 frames
-        console.log(`lost health`)
-        this.health = this.health - 50;
+        // console.log(`lost health`)
+        this.health = this.health - 10;
         // Slow down just once
         if (this.health === 50) {
           this.speedX *= 0.5;
           this.speedY *= 0.5;
         }
         }
-    }
-
-    deadFish(){
-      if (this.health === 0){
-        console.log(`Dead dead dead`)
-      }
     }
 
     checkFishHealth(){
@@ -89,10 +96,7 @@ class FishObject {
     }
 
     drawFish(){
-      // context.fillStyle = this.color;
-      // context.fillRect(this.x, this.y, this.width, this.height);
       var simpleFishImage = new Image();
-      console.log(this.health);
 
       if (this.blnHealthy){
         simpleFishImage.src = './ImgPack/PNG/Small/Guppy Small Normal.png';
@@ -133,22 +137,24 @@ class FishObject {
 }
 
 const feedFish = () => {
-  console.log('clicked FEED');
+  let foodLimit = 4;
   fishSet.forEach((element) => {
+    if (foodLimit > 0) {
     element.health = Math.max(element.health + 50,100)
-      if(!element.blnHealthy) {
+      if (!element.blnHealthy) {
         element.blnHealthy = true;
         element.speedX *= 2;
         element.speedY *= 2;
+        foodLimit -= 1;
       }
+    }
     }
   )
 };
 
 const createFish = () => {
-  console.log('made a fish')
   fishCounter += 1;
-  document.getElementById("fish-counter").innerHTML =  "Fish Counter: " + fishCounter;
+  document.getElementById("fish-counter").innerHTML =  "Fishies: " + fishCounter;
   fishSet.push(new FishObject (30,30,'blue',(canvas.width/8 + Math.random()*canvas.width*3/4),(canvas.height/8 + Math.random()*canvas.height*3/4)));
 }
 
@@ -168,6 +174,7 @@ function update(runtime) {
     element.reduceHealth();
     if (element.health == 0) {
       fishSet.splice(index, 1);
+      fishCounter -= 1;
     }
     // element.deadFish();
     element.checkFishHealth();

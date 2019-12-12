@@ -8,6 +8,7 @@ let difficultyLevel = 'hard';
 let fishSet = [];
 let requestIDTimer;
 let fishCounter = 0;
+let blnCorrect;
 
 // Difficulty level selector
 document.querySelectorAll(`.level-button`).forEach(e => {
@@ -82,7 +83,7 @@ const qGrowthRate = () => {
     }
     const randomGrowthRate = growthRateOptions[Math.floor(Math.random()*growthRateOptions.length)];
     const randomPeriod = periodOptions[Math.floor(Math.random()*periodOptions.length)];
-    const questionString = `Grows at ${randomGrowthRate}% for ${randomPeriod} periods overall growth?`;
+    const questionString = `Grows at ${randomGrowthRate}% for ${randomPeriod} periods?`;
     const answerValue = eval(((1+randomGrowthRate/100)**randomPeriod - 1).toPrecision(2));
     const isPercentage = true;
     return [questionString,answerValue,isPercentage];
@@ -148,14 +149,16 @@ document.querySelectorAll(`.answerButton`).forEach(e => {
     const clickedValue = e.value;
     const realAnswer = fullQnASet[1];
     if (clickedValue == realAnswer) {
+        blnCorrect = true;
         console.log(`Correct!`)
         newCredits = timeleft;
-        delay = 1000;
+        // delay = 1000;
     } else {
+        blnCorrect = false;
         console.log(`Incorrect!`)
-        showCorrectAnswer();
-        delay = 4000;
+        // delay = 4000;
     }
+    showCorrectAnswer(blnCorrect);
     addCredits(newCredits);
     timeleft = 10;
     setTimeout(generateNewQuestion(),delay);
@@ -183,6 +186,7 @@ const runQnATimer = () => {
             timeleft = 10;
             generateNewQuestion();
     }
+    document.getElementById("fish-counter").innerHTML =  "Fish Counter: " + fishCounter;
   }
 }
 
@@ -193,6 +197,7 @@ if (!requestIDTimer){
 
 // Play the game
 const playStart = () => {
+    backgroundMusic.play();
     blnGlobalPlayStart = true;
     timeleft = 10;
     runQnATimer();
@@ -218,6 +223,7 @@ const playPause = () => {
     document.querySelector(`.button-B`).innerHTML = 'Answer B';
     document.querySelector(`.button-C`).innerHTML = 'Answer C';
     blnFirstStart = false;
+    backgroundMusic.pause();
     loopControl.stop();
 }
 
@@ -230,52 +236,54 @@ document.querySelector(`.pause-play`).onclick = playPause;
 // Add credits
 const addCredits = inputCredits => {
     creditsTotal += inputCredits;
-    document.getElementById("credits-counter").innerHTML = creditsTotal;
+    document.getElementById(`credits-counter`).innerHTML = 'Credits: ' + creditsTotal;
+
 }
 
 // Remove credits
 const removeCredits = inputCredits => {
     creditsTotal -= inputCredits;
-    document.getElementById("credits-counter").innerHTML = creditsTotal;
+    document.getElementById(`credits-counter`).innerHTML = 'Credits: ' + creditsTotal;
 }
 
-// Count fish
-
-
-
 // Show correct answer 
-const showCorrectAnswer = () => {
+const showCorrectAnswer = (blnCorrect) => {
     const realQuestion = fullQnASet[0];
     const realAnswer = fullQnASet[1];
     const isPercentage = fullQnASet[5];
 
+    if (blnCorrect) {
+        exclaimText = 'Correct! '
+        document.getElementById("answer-reveal").style.color = "green";
+    } else {
+        exclaimText = 'Incorrect... '
+        document.getElementById("answer-reveal").style.color = "red";
+    }
+
     if (isPercentage === true) {
-        document.querySelector(`.question-section`).innerHTML  = realQuestion + ' = ' + `${Intl.NumberFormat().format(eval((realAnswer*100).toPrecision(2)))}%`;
+        document.getElementById(`answer-reveal`).innerHTML  = exclaimText + "<br />" + realQuestion.substring(0,realQuestion.length -1) + ' = ' + `${Intl.NumberFormat().format(eval((realAnswer*100).toPrecision(2)))}%`;
      } else {
-        document.querySelector(`.question-section`).innerHTML = realQuestion + ' = ' + Intl.NumberFormat().format(realAnswer);
+        document.getElementById(`answer-reveal`).innerHTML = exclaimText + "<br />" + realQuestion + ' = ' + Intl.NumberFormat().format(realAnswer);
     }
 }
 
-
-
-
 // Buy Food
 document.getElementById(`buy-food`).onclick = function() {
-    if (creditsTotal < -1){
+    let costFood = document.getElementById(`buy-food`).value;
+    if (costFood > creditsTotal){
     } else {
-        console.log('button clicked')
         feedFish();
-        removeCredits(0);
+        removeCredits(costFood);
     }
 }
 
 // Buy Fish
 document.getElementById(`buy-fish`).onclick = function() {
-    if (creditsTotal < -1){
+    let costFish = document.getElementById(`buy-fish`).value;
+    if (costFish > creditsTotal){
     } else {
         createFish();
-        removeCredits(0);
-        //buyFish();
+        removeCredits(costFish);
     }
 }
 
