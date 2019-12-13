@@ -260,9 +260,9 @@ const showCorrectAnswer = (blnCorrect) => {
     }
 
     if (isPercentage === true) {
-        document.getElementById(`answer-reveal`).innerHTML  = exclaimText + "<br />" + realQuestion.substring(0,realQuestion.length -1) + ' = ' + `${Intl.NumberFormat().format(eval((realAnswer*100).toPrecision(2)))}%`;
+        document.getElementById(`answer-reveal`).innerHTML  = exclaimText + "<br />" + realQuestion.substring(0,realQuestion.length -1) + ' \u2245 ' + `${Intl.NumberFormat().format(eval((realAnswer*100).toPrecision(2)))}%`;
      } else {
-        document.getElementById(`answer-reveal`).innerHTML = exclaimText + "<br />" + realQuestion + ' = ' + Intl.NumberFormat().format(realAnswer);
+        document.getElementById(`answer-reveal`).innerHTML = exclaimText + "<br />" + realQuestion + ' \u2245 ' + Intl.NumberFormat().format(realAnswer);
     }
 }
 
