@@ -1,7 +1,12 @@
-//Aquarium Setup
+// Mental Math Aquarium by Alex Chivescu
+// All rights reserved.
+// Contact: alexchivescu@gmail.com
+
+// Canvas-Related Javascript Code
 
 window.alert("The seconds you take to answer each math question become the credits you can spend to grow your aquarium and feed your fishies. Hit play to start. Good luck!");
   
+// Aquarium Setup in Canvas
 var backgroundMusic = new Audio();
 backgroundMusic.src = './AudioPack/Fesliyan/2019-10-21_-_Feels_Good_-_David_Fesliyan.mp3';
 var backgroundImage = new Image();
@@ -24,10 +29,7 @@ backgroundImage.onload = () => {
 }
 let runtime; 
 
-// Initial Canvas Text 
-
-
-// LOOP CONTROL Object
+// Loop control for object
 let requestIDCanvas;
 const loopControl = {
   start() {
@@ -41,7 +43,6 @@ const loopControl = {
   },
   stop() {
     if (requestIDCanvas) {
-      // console.log('hello, stop');
       window.cancelAnimationFrame(requestIDCanvas);
       requestIDCanvas = undefined;
     }
@@ -52,10 +53,7 @@ const loopControl = {
   }
 };
 
-
 // Count fish objects and print on screen
-
-
 
 // Fish Object
 class FishObject {
@@ -74,11 +72,11 @@ class FishObject {
       this.becameUnhealthy = false;
     }
 
+    // Reduce fishie health
     reduceHealth(){
       if (frames % 300 === 0){ // Every 5 seconds, 1 second = 60 frames
-        // console.log(`lost health`)
         this.health = this.health - 10;
-        // Slow down just once
+        // Slow down fish just once on health = 50
         if (this.health === 50) {
           this.speedX *= 0.5;
           this.speedY *= 0.5;
@@ -86,6 +84,7 @@ class FishObject {
         }
     }
 
+    // Set fish health boolean
     checkFishHealth(){
       this.becameUnhealthy = false;
       if (this.health <= 50) {
@@ -93,25 +92,9 @@ class FishObject {
       } else {
         this.blnHealthy = true;
       }
-    }
+    } 
 
-    drawFish(){
-      var simpleFishImage = new Image();
-
-      if (this.blnHealthy){
-        simpleFishImage.src = './ImgPack/PNG/Small/Guppy Small Normal.png';
-        if (this.speedX < 0){
-          simpleFishImage.src = './ImgPack/PNG/Small/Guppy Small Normal flip.png';
-        }  
-      } else {
-          simpleFishImage.src = './ImgPack/PNG/Small/Guppy Small Sick.png';
-          if (this.speedX < 0){
-            simpleFishImage.src = './ImgPack/PNG/Small/Guppy Small Sick flip.png';
-          }
-      }
-      context.drawImage(simpleFishImage, this.x, this.y, this.width, this.height);
-    }    
-
+    // Set new position
     newPosition(){
       this.x += this.speedX; 
       this.y += this.speedY; 
@@ -134,12 +117,31 @@ class FishObject {
         this.speedY = this.speedY * -1
       }
     }
+
+    // Draw the fish
+    drawFish(){
+      var simpleFishImage = new Image();
+
+      if (this.blnHealthy){
+        simpleFishImage.src = './ImgPack/PNG/Small/Guppy Small Normal.png';
+        if (this.speedX < 0){
+          simpleFishImage.src = './ImgPack/PNG/Small/Guppy Small Normal flip.png';
+        }  
+      } else {
+          simpleFishImage.src = './ImgPack/PNG/Small/Guppy Small Sick.png';
+          if (this.speedX < 0){
+            simpleFishImage.src = './ImgPack/PNG/Small/Guppy Small Sick flip.png';
+          }
+      }
+      context.drawImage(simpleFishImage, this.x, this.y, this.width, this.height);
+    }   
 }
 
+// Feed the fish
 const feedFish = () => {
   let foodLimit = 4;
   fishSet.forEach((element) => {
-    if (foodLimit > 0) {
+    if (foodLimit > 0 && element.blnHealthy === false) {
     element.health = Math.max(element.health + 50,100)
       if (!element.blnHealthy) {
         element.blnHealthy = true;
@@ -148,53 +150,53 @@ const feedFish = () => {
         foodLimit -= 1;
       }
     }
+  })
+  fishSet.forEach((element) => {
+    if (foodLimit > 0 && element.blnHealthy === true && element.health < 90) {
+    element.health = Math.max(element.health + 50,100)
+      if (!element.blnHealthy) {
+        element.blnHealthy = true;
+        foodLimit -= 1;
+      }
     }
-  )
+  })
 };
 
+// Create the fish
 const createFish = () => {
   fishCounter += 1;
   document.getElementById("fish-counter").innerHTML =  "Fishies: " + fishCounter;
   fishSet.push(new FishObject (30,30,'blue',(canvas.width/8 + Math.random()*canvas.width*3/4),(canvas.height/8 + Math.random()*canvas.height*3/4)));
 }
 
-// fishSet.push(new FishObject(30,30,'blue',canvas.width/2,canvas.height/2));
-// const myFish = new FishObject (30,30,'blue',canvas.width/2,canvas.height/2);
-
-
+// The master function controlling the game
 function update(runtime) {
   // A good practice is to clean a variable in a function that is running constantly in the background so avoid excessive memory use
   requestIDCanvas = undefined;
   loopControl.clear();
   frames += 1;
   // console.log(runtime); // log in each frame for how long the game is running in milliseconds
-  // do stuff here
-
+ 
+  // DO EVERYTHING HERE
   fishSet.forEach((element,index) => {
+    // Reduce health
     element.reduceHealth();
+    // If the fishie is dead, remove it
     if (element.health == 0) {
       fishSet.splice(index, 1);
       fishCounter -= 1;
     }
-    // element.deadFish();
+    // Set fish health boolean
     element.checkFishHealth();
+    // Set new position
     element.newPosition();
+    // Draw the fish
     element.drawFish();
   });
-
-  // for (i=0; i<fishSet.length; i+=1){
-
-  // }
-
-  // //Draw the fish for every fish
-  // myFish.update();
-  // myFish.newPosition();
-  // myFish.drawFish();
-  // call loopControl.start() or loopControl.stop() in the end
   loopControl.start();
 }
 // you can call loopControl.start() or loopControl.stop() outside the loop as a callback to a eventlistener to start or stop the game, however mind that you might need to save the runtime when resuming the game.
 
 
-// Ghost fishies
+// Ghost fishies?
 // context.scale(-1,1);

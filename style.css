@@ -1,3 +1,7 @@
+/* Mental Math Aquarium by Alex Chivescu
+All rights reserved.
+Contact: alexchivescu@gmail.com */
+
 body {
     display:flex;
     flex-direction: column;
@@ -9,9 +13,18 @@ body {
 }
 
 header {
-    line-height: 20px;
+    line-height: 10px;
     margin: 10px 0px;
 }
+
+h3 {
+    font-size: 0.8em;
+}
+
+.emoji {
+    font-size: 1.2em;
+}
+
 
 #aquarium-status{
     display: flex;

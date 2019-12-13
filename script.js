@@ -1,5 +1,10 @@
-// On a recurring timer
+// Mental Math Aquarium by Alex Chivescu
+// All rights reserved.
+// Contact: alexchivescu@gmail.com
 
+// Game-Play Related Javascript
+
+// On a recurring timer
 let fullQnASet = [];
 let blnGlobalPlayStart = false;
 let creditsTotal = 0;
@@ -96,7 +101,7 @@ let setupfullQnASet = () => {
     const realQuestion = selectedQAPair[0];  
     let realAnswer = selectedQAPair[1];
     const isPercentage = selectedQAPair[2]
-    // increment of 1/shuffleFactor, in this case 1/5 = +/-20 % around middle
+    // Increment of 1/shuffleFactor, in this case 1/5 = +/-20 % around middle
     const shuffleFactor = 5; 
     const shuffleArray = [[1,shuffleFactor/(shuffleFactor-1),(shuffleFactor+1)/(shuffleFactor-1)],[(shuffleFactor-1)/shuffleFactor,1,(shuffleFactor+1)/shuffleFactor],[(shuffleFactor-1)/(shuffleFactor+1),shuffleFactor/(shuffleFactor+1),1]];
     const selectedShuffle = shuffleArray[Math.floor(Math.random()*shuffleArray.length)];
@@ -152,11 +157,9 @@ document.querySelectorAll(`.answerButton`).forEach(e => {
         blnCorrect = true;
         console.log(`Correct!`)
         newCredits = timeleft;
-        // delay = 1000;
     } else {
         blnCorrect = false;
         console.log(`Incorrect!`)
-        // delay = 4000;
     }
     showCorrectAnswer(blnCorrect);
     addCredits(newCredits);
@@ -165,14 +168,11 @@ document.querySelectorAll(`.answerButton`).forEach(e => {
     }}
 })
 
-const setDelay = () => console.log('Delay!');
-
-// Start the game, initializing at first start
+// Clean first start
 let blnFirstStart = true;
 let timeleft = 0
 
 // Start Q&A Timer
-
 const runQnATimer = () => {
     zeroFill = '0';
     if (blnGlobalPlayStart) {
@@ -202,14 +202,13 @@ const playStart = () => {
     timeleft = 10;
     runQnATimer();
     generateNewQuestion();
-    // setTimeout(generateNewQuestion(),2000);
-    //On first start give a free fish
+    // On first start give a free fish
     if (blnFirstStart) {
         createFish();
         }
-    //Hereon out no free lunch
+    // Hereon out no free lunch
     blnFirstStart = false;
-    //START THE GAME
+    // Start the game
     loopControl.start();
 }
 
@@ -267,7 +266,7 @@ const showCorrectAnswer = (blnCorrect) => {
     }
 }
 
-// Buy Food
+// Buy food
 document.getElementById(`buy-food`).onclick = function() {
     let costFood = document.getElementById(`buy-food`).value;
     if (costFood > creditsTotal){
@@ -277,7 +276,7 @@ document.getElementById(`buy-food`).onclick = function() {
     }
 }
 
-// Buy Fish
+// Buy fishies
 document.getElementById(`buy-fish`).onclick = function() {
     let costFish = document.getElementById(`buy-fish`).value;
     if (costFish > creditsTotal){
@@ -286,17 +285,3 @@ document.getElementById(`buy-fish`).onclick = function() {
         removeCredits(costFish);
     }
 }
-
-
-// Fish counter 
-const fishCount = () => {
-
-}
-
-
-// Feed fish 
-
-//Timer 
-
-
-
