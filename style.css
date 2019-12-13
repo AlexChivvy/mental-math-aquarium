@@ -68,7 +68,10 @@ Contact: alexchivescu@gmail.com */
         justify-content: space-around;
     }
     .answerButton{
-        margin: 10px 10px 0px;
+        margin: 10px 0px;
+    }
+    .question-section{
+        margin-bottom: 10px;
     }
   }
   
@@ -126,7 +129,7 @@ Contact: alexchivescu@gmail.com */
         width: 10%;
     }
     .answerButton{
-        margin: 5px 5px 0px;
+        margin: 0px 5px;
     }
     #below-screen{
         width: 85%;
@@ -142,8 +145,6 @@ Contact: alexchivescu@gmail.com */
     }
   }
 
-
-
 header {
     line-height: 10px;
     margin: 10px 0px;
@@ -156,9 +157,6 @@ h3 {
 .emoji {
     font-size: 1.2em;
 }
-
-
-
 
 #play-pause-buttons{
     display:flex;
