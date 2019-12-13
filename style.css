@@ -7,6 +7,9 @@ Contact: alexchivescu@gmail.com */
     header {
         width:100%;
     }
+    #aquarium{
+        width:600px;
+    }
     h1 {
       font-size: 2.0em;
       font-weight: bold;
@@ -87,6 +90,9 @@ Contact: alexchivescu@gmail.com */
     font-family: Georgia, serif;
     font-size: 0.4em;
     font-weight: bold;
+    }
+    #aquarium{
+        width:100%;
     }
     h1 {
     font-size: 2.5em;

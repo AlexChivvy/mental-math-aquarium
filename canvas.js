@@ -14,7 +14,7 @@ backgroundImage.src = './ImgPack/PNG/Small/Background.png';
 const canvas = document.getElementById(`aquarium`);
 let frames = 0;
 const context = canvas.getContext("2d");
-canvas.width = window.innerWidth*17/20;
+// canvas.width = window.innerWidth*17/20;
 canvas.height = canvas.width*2/3;
 backgroundImage.onload = () => {
   context.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
@@ -192,7 +192,7 @@ const feedFish = () => {
 const createFish = () => {
   fishCounter += 1;
   document.getElementById("fish-counter").innerHTML =  "Fishies: " + fishCounter;
-  fishSet.push(new FishObject (30,30,'blue',(canvas.width/8 + Math.random()*canvas.width*3/4),(canvas.height/8 + Math.random()*canvas.height*3/4),false));
+  fishSet.push(new FishObject (canvas.height/10,canvas.height/10,'blue',(canvas.width/8 + Math.random()*canvas.width*3/4),(canvas.height/8 + Math.random()*canvas.height*3/4),false));
 }
 
 // The master function controlling the game
