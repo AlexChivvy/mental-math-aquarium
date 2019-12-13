@@ -14,8 +14,8 @@ backgroundImage.src = './ImgPack/PNG/Small/Background.png';
 const canvas = document.getElementById(`aquarium`);
 let frames = 0;
 const context = canvas.getContext("2d");
-canvas.width = 600;
-canvas.height = 400;
+canvas.width = window.innerWidth*2/3;
+canvas.height = canvas.width*2/3;
 backgroundImage.onload = () => {
   context.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
   // context.textAlign = "start";
@@ -57,7 +57,7 @@ const loopControl = {
 
 // Fish Object
 class FishObject {
-    constructor(width, height, color, x, y) {
+    constructor(width, height, color, x, y, predator) {
       this.width = width;
       this.height = height;
       this.color = color;
@@ -70,22 +70,31 @@ class FishObject {
       this.health = 100;
       this.blnHealthy = true;
       this.becameUnhealthy = false;
+      this.age = 0;
+      this.grownFish = false;
+      this.isPredator = predator;
     }
 
     // Reduce fishie health
-    reduceHealth(){
+    frameActivities(){
       if (frames % 300 === 0){ // Every 5 seconds, 1 second = 60 frames
         this.health = this.health - 10;
+        this.age = this.age + 10;
         // Slow down fish just once on health = 50
         if (this.health === 50) {
           this.speedX *= 0.5;
           this.speedY *= 0.5;
         }
+        if (this.age === 150) {
+          this.grownFish = true;
+          this.width *= 2;
+          this.height *= 2;
+        }
         }
     }
 
-    // Set fish health boolean
-    checkFishHealth(){
+    // Set fish health and age booleans
+    booleanActivities(){
       this.becameUnhealthy = false;
       if (this.health <= 50) {
         this.blnHealthy = false;
@@ -122,19 +131,36 @@ class FishObject {
     drawFish(){
       var simpleFishImage = new Image();
 
-      if (this.blnHealthy){
-        simpleFishImage.src = './ImgPack/PNG/Small/Guppy Small Normal.png';
-        if (this.speedX < 0){
-          simpleFishImage.src = './ImgPack/PNG/Small/Guppy Small Normal flip.png';
-        }  
-      } else {
-          simpleFishImage.src = './ImgPack/PNG/Small/Guppy Small Sick.png';
+      if (this.grownFish === false && this.isPredator === false){
+        if (this.blnHealthy){
+          simpleFishImage.src = './ImgPack/PNG/Medium/Guppy Small Normal.png';
           if (this.speedX < 0){
-            simpleFishImage.src = './ImgPack/PNG/Small/Guppy Small Sick flip.png';
+            simpleFishImage.src = './ImgPack/PNG/Medium/Guppy Small Normal flip.png';
+          }  
+          } else {
+            simpleFishImage.src = './ImgPack/PNG/Medium/Guppy Small Sick.png';
+            if (this.speedX < 0){
+              simpleFishImage.src = './ImgPack/PNG/Medium/Guppy Small Sick flip.png';
+            }
           }
       }
+
+      if (this.grownFish === true && this.isPredator === false){
+        if (this.blnHealthy){
+          simpleFishImage.src = './ImgPack/PNG/Medium/Guppy Large Normal.png';
+          if (this.speedX < 0){
+            simpleFishImage.src = './ImgPack/PNG/Medium/Guppy Large Normal flip.png';
+          }  
+          } else {
+            simpleFishImage.src = './ImgPack/PNG/Medium/Guppy Large Sick.png';
+            if (this.speedX < 0){
+              simpleFishImage.src = './ImgPack/PNG/Medium/Guppy Large Sick flip.png';
+            }
+          }
+      }
+
       context.drawImage(simpleFishImage, this.x, this.y, this.width, this.height);
-    }   
+    }  
 }
 
 // Feed the fish
@@ -166,7 +192,7 @@ const feedFish = () => {
 const createFish = () => {
   fishCounter += 1;
   document.getElementById("fish-counter").innerHTML =  "Fishies: " + fishCounter;
-  fishSet.push(new FishObject (30,30,'blue',(canvas.width/8 + Math.random()*canvas.width*3/4),(canvas.height/8 + Math.random()*canvas.height*3/4)));
+  fishSet.push(new FishObject (30,30,'blue',(canvas.width/8 + Math.random()*canvas.width*3/4),(canvas.height/8 + Math.random()*canvas.height*3/4),false));
 }
 
 // The master function controlling the game
@@ -180,14 +206,14 @@ function update(runtime) {
   // DO EVERYTHING HERE
   fishSet.forEach((element,index) => {
     // Reduce health
-    element.reduceHealth();
+    element.frameActivities();
     // If the fishie is dead, remove it
     if (element.health == 0) {
       fishSet.splice(index, 1);
       fishCounter -= 1;
     }
     // Set fish health boolean
-    element.checkFishHealth();
+    element.booleanActivities();
     // Set new position
     element.newPosition();
     // Draw the fish
