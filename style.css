@@ -2,7 +2,7 @@
 All rights reserved.
 Contact: alexchivescu@gmail.com */
 
-/* If the screen size is 601px wide or more, set the font-size of <div> to 80px */
+/* WEB If the screen size is 601px wide or more, set the font-size of <div> to 80px */
 @media screen and (min-width: 601px) {
     header {
         width:100%;
@@ -54,20 +54,23 @@ Contact: alexchivescu@gmail.com */
     .width-filler{
         width: 20%;
     }
+    #below-screen{
+        width: 66%;
+        display:flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    #aquarium-status{
+        width: 66%;
+        display:flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
   }
   
-  /* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+  /* PHONE If the screen size is 600px wide or less, set the font-size of <div> to 30px */
   @media screen and (max-width: 600px) {
-    h1 {
-      font-size: 1.6em;
-      font-weight: bold;
-      word-wrap: break-word;
-    }
-    h3 {
-        font-size: 0.8em;
-        font-weight: normal;
-        word-wrap: break-word;
-      }
     body {
     display:flex;
     flex-direction: column;
@@ -76,8 +79,18 @@ Contact: alexchivescu@gmail.com */
     background-color: white;
     color: black;
     font-family: Georgia, serif;
-    font-size: 0.6em;
+    font-size: 0.4em;
     font-weight: bold;
+    }
+    h1 {
+    font-size: 1.8em;
+    font-weight: bold;
+    word-wrap: break-word;
+    }
+    h3 {
+        font-size: 0.8em;
+        font-weight: normal;
+        word-wrap: break-word;
     }
     .below-row{
         margin-bottom: 5px;
@@ -112,6 +125,19 @@ Contact: alexchivescu@gmail.com */
     .answerButton{
         margin-top: 5px;
     }
+    #below-screen{
+        width: 85%;
+        display:flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    #aquarium-status{
+        width: 85%;
+        display:flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
   }
 
 
@@ -130,29 +156,13 @@ h3 {
 }
 
 
-#aquarium-status{
-    width: 66%;
-    display:flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
+
 
 #play-pause-buttons{
     display:flex;
     flex-direction: row;
     align-items: center;
 }
-
-#below-screen{
-    width: 66%;
-    display:flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-
-
-
 
 .width40perc{
     width: 40%;

@@ -14,7 +14,7 @@ backgroundImage.src = './ImgPack/PNG/Small/Background.png';
 const canvas = document.getElementById(`aquarium`);
 let frames = 0;
 const context = canvas.getContext("2d");
-canvas.width = window.innerWidth*2/3;
+canvas.width = window.innerWidth*17/20;
 canvas.height = canvas.width*2/3;
 backgroundImage.onload = () => {
   context.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);

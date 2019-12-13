@@ -186,7 +186,7 @@ const runQnATimer = () => {
             timeleft = 10;
             generateNewQuestion();
     }
-    document.getElementById("fish-counter").innerHTML =  "Fish Counter: " + fishCounter;
+    document.getElementById("fish-counter").innerHTML =  "Fish: " + fishCounter;
   }
 }
 
