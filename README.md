@@ -6,17 +6,17 @@ This game is designed to help train your mental math skills in a fun aquatic env
 
 To run the game [click here](https://alexchivvy.github.io/mental-math-aquarium/). You will open the game page with brief instructions for play.
 
-:warning: The game is not compatible with mobile. You have to run in a browser on you notebook or desktop PC.
-
-![Game initial page](img/screenshot-.png)
+:warning: The game is not compatible with mobile. You have to run in a browser on your notebook or desktop PC.
 
 ## How to play
 
-To start the game click on the yellow button **START GAME**. After that the archer and the ballons will show up. You can move the archer for a better shoot using the keyboard's arrows.
+To start the game click on the button "Play". You begin the game with 1 fishy and unlimited mental math questions, each with an initial timer of 10 seconds. 
+
+The time you take to answer each question is converted into credits, which can be used to either buy additional fishies or feed your current tank. 
+
+When your current fishies are hungry, they will turn green and slow down. Feed them quickly before they disappear! 
 
 ![Game started](ImgPack/ScreenShot2019-12-13at10.22.38AM.png)
-
-You begin the game with 1 fish and unlimited mental math questions, each with an initial timer of 10 seconds. The time you take to answer each question is converted into credits, which can be used to either buy additional fish or feed your current tank. 
 
 ## Built With
 
