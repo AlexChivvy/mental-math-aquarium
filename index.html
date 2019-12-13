@@ -13,27 +13,50 @@ Contact: alexchivescu@gmail.com -->
 </head>
 <body>
 
-   <header class="container">
-        <h1>Mental Math Aquarium Web Version BETA</h1>
-        <h3>To come: Instruction formatting, Additional fish types, CSS styling, flexible sizing / mobile</h3>
-        <h3>Let me know what you think & send feedback &nbsp; &rarr; &nbsp; &rarr; &nbsp; &rarr; &nbsp; <a href="mailto: alexchivescu@gmail.com">alexchivescu@gmail.com</a><span class="emoji"> &#128032; &#128515;</span></h3>
-   </header>
 
-   <div id="aquarium-status" class="container">
-        <div id="timer-area" class="width50perc">
-                <div id="countdown" class="below-row">Timer</div>
-                <button class="start-play">Play</button>
-                <button class="pause-play">Pause</button><br>
-        </div>
-        <div class="width10perc">
-        </div>
-        <div class="difficulty-area" class="width40perc">
-            <div class="below-row">Difficulty level:</div>
-            <button class="level-button" value="hard">Hard</button>
-            <button class="level-button" value="medium">Medium</button>
-            <button class="level-button" value="easy">Easy</button>
-        </div>
+<header class="container">
+    <h1>Mental Math Aquarium BETA</h1>
+    <h3>Let me know what you think & send feedback &nbsp; &rarr; &nbsp; &rarr; &nbsp; &rarr; &nbsp; <a href="mailto: alexchivescu@gmail.com">alexchivescu@gmail.com</a><span class="emoji"> &#128032; &#128515;</span></h3>
+    <h3>To come: Instruction formatting, Additional fish types, CSS styling</h3>
+</header>
+
+
+<div id="aquarium-status" class="container">
+    <div id="timer-area" class="width40perc">
+            <div id="countdown" class="below-row">Timer</div>
+            <button class="start-play">Play</button>
+            <button class="pause-play">Pause</button><br>
     </div>
+    <div class="width20perc">
+    </div>
+    <div class="difficulty-area" class="width40perc">
+        <div class="below-row">Difficulty level:</div>
+        <button class="level-button" value="hard">Hard</button>
+        <button class="level-button" value="medium">Medium</button>
+        <button class="level-button" value="easy">Easy</button>
+    </div>
+</div>
+<!-- 
+
+<div class="row">
+    
+</div>
+
+<div class="row">
+    
+</div>
+
+<div class="row">
+    
+</div>
+
+<div class="row">
+    
+</div>
+
+<div class="row">
+    
+</div> -->
 
    <div id="game-area" class="container">
     <canvas id="aquarium" class='game-area-item'>
@@ -41,7 +64,7 @@ Contact: alexchivescu@gmail.com -->
     </div>
     
     <div id ="below-screen" class="container"> 
-        <div class="width50perc">
+        <div class="widthQnA">
             <div class="question-section below-row">Question</div>
             <div class="answer-section">
                 <button class="button-A answerButton" value="0">Answer A</button>
@@ -49,13 +72,13 @@ Contact: alexchivescu@gmail.com -->
                 <button class="button-C answerButton" value="0">Answer C</button>
             </div>
         </div>
-        <div class="width25perc">
+        <div class="widthPurchase">
             <div id="fish-counter" class="below-row">Fishies: 0</div>
-            <button id="buy-fish" value="50">Buy Fish - 50 Cred</button>
+            <button id="buy-fish" value="50">Buy Fish <br> 50 Cred</button>
         </div>
-        <div class="width25perc">
+        <div class="widthPurchase">
             <div id="credits-counter" class="below-row">Credits: 0</div>
-            <button id="buy-food" value="20">Buy Food - 20 Cred</button>
+            <button id="buy-food" value="20">Buy Food <br> 20 Cred</button>
         </div>
     </div>
 
