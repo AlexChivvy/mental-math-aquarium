@@ -218,9 +218,9 @@ const playPause = () => {
     requestIDTimer = undefined;
     document.getElementById("countdown").innerHTML = 'Timer'
     document.querySelector(`.question-section`).textContent = 'Question';
-    document.querySelector(`.button-A`).innerHTML = 'Answer A';
-    document.querySelector(`.button-B`).innerHTML = 'Answer B';
-    document.querySelector(`.button-C`).innerHTML = 'Answer C';
+    document.querySelector(`.button-A`).innerHTML = '(A)';
+    document.querySelector(`.button-B`).innerHTML = '(B)';
+    document.querySelector(`.button-C`).innerHTML = '(C)';
     blnFirstStart = false;
     backgroundMusic.pause();
     loopControl.stop();
