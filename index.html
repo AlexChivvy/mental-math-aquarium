@@ -13,85 +13,72 @@ Contact: alexchivescu@gmail.com -->
 </head>
 <body>
 
+    <div class="gutter-column"></div>
+    <div class="content-column">
+        <header class="container">
+            <h1 class="below-row">Mental Math Aquarium BETA</h1><br>
+            <h3>Let me know what you think & send feedback!</h3>
+            <h3>&nbsp; &rarr; &nbsp; &rarr; &nbsp; &rarr; &nbsp; <a href="mailto: alexchivescu@gmail.com">alexchivescu@gmail.com</a><span class="emoji"> &nbsp; &#128032; &nbsp; &#128515;</span></h3>
+            <h3><i>To come: Instruction formatting, Additional fish types, CSS styling</i></h3>
+        </header>
 
-<header class="container">
-    <h1 class="below-row">Mental Math Aquarium BETA</h1><br>
-    <h3>Let me know what you think & send feedback!</h3>
-    <h3>&nbsp; &rarr; &nbsp; &rarr; &nbsp; &rarr; &nbsp; <a href="mailto: alexchivescu@gmail.com">alexchivescu@gmail.com</a><span class="emoji"> &nbsp; &#128032; &nbsp; &#128515;</span></h3>
-    <h3><i>To come: Instruction formatting, Additional fish types, CSS styling</i></h3>
-</header>
 
-
-<div id="aquarium-status" class="container">
-    <div id="timer-area" class="width40perc">
-            <div id="countdown" class="below-row">Timer</div>
-            <button class="start-play">Play</button>
-            <button class="pause-play">Pause</button><br>
-    </div>
-    <div class="width-filler">
-    </div>
-    <div class="difficulty-area" class="width40perc">
-        <div class="below-row">Difficulty level:</div>
-        <button class="level-button" value="hard">Hard</button>
-        <button class="level-button" value="medium">Medium</button>
-        <button class="level-button" value="easy">Easy</button>
-    </div>
-</div>
-<!-- 
-
-<div class="row">
-    
-</div>
-
-<div class="row">
-    
-</div>
-
-<div class="row">
-    
-</div>
-
-<div class="row">
-    
-</div>
-
-<div class="row">
-    
-</div> -->
-
-   <div id="game-area" class="container">
-    <canvas id="aquarium" class='game-area-item'>
-   </canvas>
-    </div>
-    
-    <div id ="below-screen" class="container"> 
-        <div class="widthQnA">
-            <div class="question-section below-row">Question</div>
-            <div class="answer-section">
-                <button class="button-A answerButton" value="0">Choice A</button>
-                <button class="button-B answerButton" value="0">Choice B</button>
-                <button class="button-C answerButton" value="0">Choice C</button>
+        <div id="aquarium-status">
+            <div class="widthfillergutter">
+            </div>
+            <div id="timer-area" class="widthfillerTimerDifficulty">
+                    <div id="countdown" class="below-row">Timer</div>
+                    <button class="start-play button-space">Play</button>
+                    <button class="pause-play button-space">Pause</button><br>
+            </div>
+            <div class="widthfillerTimerDifficultyMiddle">
+            </div>
+            <div class="difficulty-area" class="widthfillerTimerDifficulty">
+                <div class="below-row">Difficulty level:</div>
+                <button class="level-button button-space" value="hard">Hard</button>
+                <button class="level-button button-space" value="medium">Medium</button>
+                <button class="level-button button-space" value="easy">Easy</button>
+            </div>
+            <div class="widthfillergutter">
             </div>
         </div>
-        <div class="widthPurchase">
-            <div id="fish-counter" class="below-row">Fishies: 0</div>
-            <button id="buy-fish" value="50">Buy Fish <br> 50 Cred</button>
-        </div>
-        <div class="widthPurchase">
-            <div id="credits-counter" class="below-row">Credits: 0</div>
-            <button id="buy-food" value="20">Buy Food <br> 20 Cred</button>
-        </div>
-    </div>
 
-    <div id="answer-reveal" class="below-row container">
-        Check your answers here!
-    </div>
+        <!-- <div id="game-area"> -->
+            <canvas id="aquarium" class='game-area-item widthfiller80'>
+            </canvas>
+        <!-- </div> -->
+            
+            <div id ="below-screen">
+                <div class="widthQnA">
+                    <div class="question-section below-row">Question</div>
+                    <div class="answer-section">
+                        <button class="button-A answerButton button-space" value="0">Choice A</button>
+                        <button class="button-B answerButton button-space" value="0">Choice B</button>
+                        <button class="button-C answerButton button-space" value="0">Choice C</button>
+                    </div>
+                </div>
+                    <div class="widthfiller20">
+                        <div id="fish-counter" class="below-row">Fishies: 0</div>
+                        <button id="buy-fish" value="50" class="button-space">Buy Fish <br> 50 Cred</button>
+                    </div>
+                    <div class="widthfiller20">
+                        <div id="credits-counter" class="below-row">Credits: 0</div>
+                        <button id="buy-food" value="20" class="button-space">Buy Food <br> 20 Cred</button>
+                    </div>
+                </div>
+            </div>
 
-    <footer id="footer"> 
-        Fish Pack by Andrew Tidey | License (<a href="http://creativecommons.org/publicdomain/zero/1.0/">Creative Commons Zero, CC0</a>)<br>
-        Sound effects obtained from  <a href="https://www.zapsplat.com">https://www.zapsplat.com</a><br>
-        Royalty free music from  <a href="https://www.fesliyanstudios.com">https://www.fesliyanstudios.com</a>
-    </footer>
+            <div id="answer-reveal" class="below-row container">
+                Check your answers here!
+            </div>
+
+            <footer id="footer"> 
+                Fish Pack by Andrew Tidey | License (<a href="http://creativecommons.org/publicdomain/zero/1.0/">Creative Commons Zero, CC0</a>)<br>
+                Sound effects obtained from  <a href="https://www.zapsplat.com">https://www.zapsplat.com</a><br>
+                Royalty free music from  <a href="https://www.fesliyanstudios.com">https://www.fesliyanstudios.com</a>
+            </footer>
+    </div>
+    <div class="gutter-column"></div>
 
     <script type="text/javascript" src="canvas.js"></script>
     <script type="text/javascript" src="script.js"></script>

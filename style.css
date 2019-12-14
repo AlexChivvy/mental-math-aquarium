@@ -4,11 +4,12 @@ Contact: alexchivescu@gmail.com */
 
 /* WEB If the screen size is 601px wide or more, set the font-size of <div> to 80px */
 @media screen and (min-width: 601px) {
+    
     header {
         width:100%;
     }
     #aquarium{
-        width:600px;
+        width:66%;
     }
     h1 {
       font-size: 2.0em;
@@ -27,6 +28,14 @@ Contact: alexchivescu@gmail.com */
         background-color: white;
         color: black;
         font-family: Georgia, serif;
+        width: 100%;
+        margin: 0;
+    }
+    .gutter-column{
+        width:10%;
+    }
+    .content-column{
+        width:80%;
     }
     .below-row{
         margin-bottom: 10px;
@@ -48,34 +57,27 @@ Contact: alexchivescu@gmail.com */
         font-weight: bold;
         border-radius: 4px;
     }
-    .widthQnA{
-        width: 50%;
-    }
-    .widthPurchase{
-        width: 25%;
-    }
-    .width-filler{
-        width: 20%;
-    }
     #below-screen{
-        width: 66%;
+        width: inherit;
         display:flex;
         flex-direction: row;
         justify-content: space-around;
+        margin-right: 0;
+        margin-left:10%;
     }
-
     #aquarium-status{
-        width: 66%;
+        width: 100%;
         display:flex;
         flex-direction: row;
         justify-content: space-around;
     }
-    .answerButton{
+    .button-space{
         margin: 10px 0px;
     }
     .question-section{
         margin-bottom: 10px;
     }
+
   }
   
   /* PHONE If the screen size is 600px wide or less, set the font-size of <div> to 30px */
@@ -90,9 +92,17 @@ Contact: alexchivescu@gmail.com */
     font-family: Georgia, serif;
     font-size: 0.4em;
     font-weight: bold;
+    width: 100%;
+    margin: 0;
+    }
+    .gutter-column{
+        width:10%;
+    }
+    .content-column{
+        width:80%;
     }
     #aquarium{
-        width:100%;
+        width:90%;
     }
     h1 {
     font-size: 2.5em;
@@ -125,30 +135,46 @@ Contact: alexchivescu@gmail.com */
         font-weight: bold;
         border-radius: 4px;
     }
-    .widthQnA{
-        width: 60%;
-    }
-    .widthPurchase{
-        width: 20%;
-    }
-    .width-filler{
-        width: 10%;
+    .button-space{
+        margin: 5px 0px;
     }
     .answerButton{
         margin: 0px 5px;
     }
     #below-screen{
-        width: 85%;
-        display:flex;
+        width: 100%;
+        display: flex;
         flex-direction: row;
         justify-content: space-around;
     }
     #aquarium-status{
-        width: 85%;
+        width: 100%;
         display:flex;
         flex-direction: row;
         justify-content: space-around;
     }
+/* 
+    .widthfillerTimerDifficulty{
+        width: 30%;
+        /* 30 for mobile 30 desktop */
+    /* }
+    .widthfillerTimerDifficultyMiddle{
+        width: 20%; */
+        /* 20 for mobile 20 desktop */
+    /* }
+    .widthfillerFishiesCredits{
+        width: 20%; */
+        /* 20 for mobile 15 desktop */
+    /* }
+    .widthfillergutter{
+        width: 10%; */
+        /* 10 for mobile 15 desktop */
+    /* }
+    .widthQnA{
+        width: 50%; */
+        /* 50 for mobile 40 desktop */
+    /* } */ 
+
   }
 
 header {
@@ -170,15 +196,17 @@ h3 {
     align-items: center;
 }
 
-.width40perc{
-    width: 40%;
-}
+/* #game-area{
+    width: 100%;
+    max-width: 600px; */
+    /* max-width: 700px; */
+/* } */
 
 canvas {
-    margin: 15px;
-    background-image: url('./ImgPack/PNG/Small/Background.png');
+    background-image: url('./ImgPack/PNG/Medium/Background.png');
     background-size: cover;
     background-repeat: no-repeat;
+    width: 100%;
 }
 
 

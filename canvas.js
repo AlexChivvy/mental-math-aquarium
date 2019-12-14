@@ -10,7 +10,7 @@ window.alert("The seconds you take to answer each math question become the credi
 var backgroundMusic = new Audio();
 backgroundMusic.src = './AudioPack/Fesliyan/2019-10-21_-_Feels_Good_-_David_Fesliyan.mp3';
 var backgroundImage = new Image();
-backgroundImage.src = './ImgPack/PNG/Small/Background.png';
+backgroundImage.src = './ImgPack/PNG/Medium/Background.png';
 const canvas = document.getElementById(`aquarium`);
 let frames = 0;
 const context = canvas.getContext("2d");
@@ -133,28 +133,28 @@ class FishObject {
 
       if (this.grownFish === false && this.isPredator === false){
         if (this.blnHealthy){
-          simpleFishImage.src = './ImgPack/PNG/Medium/Guppy Small Normal.png';
+          simpleFishImage.src = './ImgPack/PNG/Large/Guppy Small Normal.png';
           if (this.speedX < 0){
-            simpleFishImage.src = './ImgPack/PNG/Medium/Guppy Small Normal flip.png';
+            simpleFishImage.src = './ImgPack/PNG/Large/Guppy Small Normal flip.png';
           }  
           } else {
-            simpleFishImage.src = './ImgPack/PNG/Medium/Guppy Small Sick.png';
+            simpleFishImage.src = './ImgPack/PNG/Large/Guppy Small Sick.png';
             if (this.speedX < 0){
-              simpleFishImage.src = './ImgPack/PNG/Medium/Guppy Small Sick flip.png';
+              simpleFishImage.src = './ImgPack/PNG/Large/Guppy Small Sick flip.png';
             }
           }
       }
 
       if (this.grownFish === true && this.isPredator === false){
         if (this.blnHealthy){
-          simpleFishImage.src = './ImgPack/PNG/Medium/Guppy Large Normal.png';
+          simpleFishImage.src = './ImgPack/PNG/Large/Guppy Large Normal.png';
           if (this.speedX < 0){
-            simpleFishImage.src = './ImgPack/PNG/Medium/Guppy Large Normal flip.png';
+            simpleFishImage.src = './ImgPack/PNG/Large/Guppy Large Normal flip.png';
           }  
           } else {
-            simpleFishImage.src = './ImgPack/PNG/Medium/Guppy Large Sick.png';
+            simpleFishImage.src = './ImgPack/PNG/Large/Guppy Large Sick.png';
             if (this.speedX < 0){
-              simpleFishImage.src = './ImgPack/PNG/Medium/Guppy Large Sick flip.png';
+              simpleFishImage.src = './ImgPack/PNG/Large/Guppy Large Sick flip.png';
             }
           }
       }
