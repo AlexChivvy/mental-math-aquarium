@@ -133,28 +133,28 @@ class FishObject {
 
       if (this.grownFish === false && this.isPredator === false){
         if (this.blnHealthy){
-          simpleFishImage.src = './ImgPack/PNG/Large/Guppy Small Normal.png';
+          simpleFishImage.src = './ImgPack/PNG/Medium/Guppy Small Normal.png';
           if (this.speedX < 0){
-            simpleFishImage.src = './ImgPack/PNG/Large/Guppy Small Normal flip.png';
+            simpleFishImage.src = './ImgPack/PNG/Medium/Guppy Small Normal flip.png';
           }  
           } else {
-            simpleFishImage.src = './ImgPack/PNG/Large/Guppy Small Sick.png';
+            simpleFishImage.src = './ImgPack/PNG/Medium/Guppy Small Sick.png';
             if (this.speedX < 0){
-              simpleFishImage.src = './ImgPack/PNG/Large/Guppy Small Sick flip.png';
+              simpleFishImage.src = './ImgPack/PNG/Medium/Guppy Small Sick flip.png';
             }
           }
       }
 
       if (this.grownFish === true && this.isPredator === false){
         if (this.blnHealthy){
-          simpleFishImage.src = './ImgPack/PNG/Large/Guppy Large Normal.png';
+          simpleFishImage.src = './ImgPack/PNG/Medium/Guppy Large Normal.png';
           if (this.speedX < 0){
-            simpleFishImage.src = './ImgPack/PNG/Large/Guppy Large Normal flip.png';
+            simpleFishImage.src = './ImgPack/PNG/Medium/Guppy Large Normal flip.png';
           }  
           } else {
-            simpleFishImage.src = './ImgPack/PNG/Large/Guppy Large Sick.png';
+            simpleFishImage.src = './ImgPack/PNG/Medium/Guppy Large Sick.png';
             if (this.speedX < 0){
-              simpleFishImage.src = './ImgPack/PNG/Large/Guppy Large Sick flip.png';
+              simpleFishImage.src = './ImgPack/PNG/Medium/Guppy Large Sick flip.png';
             }
           }
       }
