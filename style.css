@@ -19,6 +19,9 @@ Contact: alexchivescu@gmail.com */
     h3 {
         font-size: 1.2em;
         word-wrap: break-word;
+        line-height: normal;
+        width: 100;
+        text-align: center;
     }
     body {
         display:flex;
@@ -113,6 +116,7 @@ Contact: alexchivescu@gmail.com */
         font-size: 0.8em;
         font-weight: normal;
         word-wrap: break-word;
+        line-height: normal;
     }
     .below-row{
         margin-bottom: 5px;
@@ -182,9 +186,9 @@ header {
     margin: 10px 0px;
 }
 
-h3 {
+/* h3 {
     font-size: 0.8em;
-}
+} */
 
 .emoji {
     font-size: 1.2em;

@@ -3,8 +3,6 @@
 // Contact: alexchivescu@gmail.com
 
 // Canvas-Related Javascript Code
-
-window.alert("The seconds you take to answer each math question become the credits you can spend to grow your aquarium and feed your fishies. Hit play to start. Good luck!");
   
 // Aquarium Setup in Canvas
 var backgroundMusic = new Audio();
